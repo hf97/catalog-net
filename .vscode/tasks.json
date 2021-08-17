@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/catalog-net.csproj",
+                "${workspaceFolder}/build.proj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -23,7 +23,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/catalog-net.csproj",
+                "${workspaceFolder}/catalog-net/catalog-net.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -36,7 +36,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/catalog-net.csproj",
+                "${workspaceFolder}/catalog-net/catalog-net.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -51,12 +51,12 @@
             "dockerBuild": {
                 "tag": "catalognet:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/Dockerfile",
-                "context": "${workspaceFolder}",
+                "dockerfile": "${workspaceFolder}/catalog-net/Dockerfile",
+                "context": "${workspaceFolder}/catalog-net",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/catalog-net.csproj"
+                "appProject": "${workspaceFolder}/catalog-net/catalog-net.csproj"
             }
         },
         {
@@ -67,12 +67,12 @@
             ],
             "dockerBuild": {
                 "tag": "catalognet:latest",
-                "dockerfile": "${workspaceFolder}/Dockerfile",
+                "dockerfile": "${workspaceFolder}/catalog-net/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/catalog-net.csproj"
+                "appProject": "${workspaceFolder}/catalog-net/catalog-net.csproj"
             }
         },
         {
@@ -83,7 +83,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/catalog-net.csproj",
+                "appProject": "${workspaceFolder}/catalog-net/catalog-net.csproj",
                 "enableDebugging": true,
                 "configureSsl": false
             }
@@ -96,7 +96,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/catalog-net.csproj"
+                "appProject": "${workspaceFolder}/catalog-net/catalog-net.csproj"
             }
         }
     ]
